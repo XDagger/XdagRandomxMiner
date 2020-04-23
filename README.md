@@ -1,5 +1,5 @@
 # DaggerGpuMiner
-Stand-alone GPU/CPU miner for XDAG (Dagger coin)
+Stand-alone RandomX CPU/GPU miner for XDAG (Dagger coin)
 
 This miner does not require files wallet.dat and dnet_key.dat. Storage folder is still necessary.
 
