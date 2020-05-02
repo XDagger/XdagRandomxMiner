@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F28FA0B5-F3B9-45B1-9271-6D4B23A19695}</ProjectGuid>
-    <RootNamespace>GpuMiner</RootNamespace>
+    <RootNamespace>RandomX_Miner</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>DaggerGpuMiner</ProjectName>
+    <ProjectName>DaggerMiner</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,6 +71,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <LibraryPath>$(SolutionDir)\RandomX_Miner\RandomX\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(SolutionDir)\RandomX_Miner\RandomX\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(SolutionDir)\RandomX_Miner\RandomX\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>$(SolutionDir)\RandomX_Miner\RandomX\$(Platform)\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -82,7 +92,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy CL\CLMiner_kernel.cl "$(OutDir)CLMiner_kernel.cl" /Y</Command>
@@ -98,7 +108,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86_64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy CL\CLMiner_kernel.cl "$(OutDir)CLMiner_kernel.cl" /Y</Command>
@@ -121,7 +131,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
@@ -147,7 +157,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86_64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
@@ -188,6 +198,7 @@
     <ClInclude Include="MinerEngine\CLMiner.h" />
     <ClInclude Include="MinerEngine\CL\cl2.hpp" />
     <ClInclude Include="MinerEngine\XCpuMiner.h" />
+    <ClInclude Include="RandomX\randomx.h" />
     <ClInclude Include="XDagCore\XFee.h" />
     <ClInclude Include="XDagCore\XConnection.h" />
     <ClInclude Include="XDagCore\XGlobal.h" />

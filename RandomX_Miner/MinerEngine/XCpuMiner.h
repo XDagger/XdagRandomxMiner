@@ -7,6 +7,7 @@
 #pragma once
 
 #include "Core/Miner.h"
+#include "RandomX/randomx.h"
 
 using namespace XDag;
 

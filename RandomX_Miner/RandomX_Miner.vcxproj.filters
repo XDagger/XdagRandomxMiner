@@ -37,6 +37,9 @@
     <Filter Include="MinerEngine\CL">
       <UniqueIdentifier>{fd490899-72a9-4fa9-afe9-4b94bdb64b34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RandomX">
+      <UniqueIdentifier>{6b00a411-556f-4cbc-a64c-54dd20fc7ad5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils\PathUtils.cpp">
@@ -248,6 +251,9 @@
     </ClInclude>
     <ClInclude Include="XDagCore\XTime.h">
       <Filter>XDagCore</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomX\randomx.h">
+      <Filter>RandomX</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
