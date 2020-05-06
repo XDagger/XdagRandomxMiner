@@ -15,7 +15,7 @@ using namespace XDag;
 void Help()
 {
     std::cout
-        << "Usage Dagger Gpu Miner [OPTIONS]" << std::endl
+        << "Usage Dagger RandomX Miner [OPTIONS]" << std::endl
         << "Options:" << std::endl << std::endl;
     MinerManager::StreamHelp(std::cout);
     std::cout

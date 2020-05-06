@@ -29,4 +29,5 @@ public:
     static void ListDevices();
 
     HwMonitor Hwmon() override;
+	uint64_t SearchMinNonce(uint64_t* input, uint64_t* nonce, int iterations, int step, xdag_hash_t hash);
 };

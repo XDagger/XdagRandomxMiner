@@ -23,12 +23,13 @@
 
 #pragma once
 
+#include "RandomX/randomx.h"
 #include "Worker.h"
 #include <thread>
 #include <list>
 #include <vector>
 #include <string>
-#include <boost/timer.hpp>
+#include <boost/timer/timer.hpp>
 #include "Common.h"
 #include "Log.h"
 #include "XDagCore/XTaskProcessor.h"
@@ -126,10 +127,13 @@ namespace XDag
         virtual HwMonitor Hwmon() = 0;
         virtual bool Initialize() = 0;
 
+		randomx_flags GetFlags() const { return _taskProcessor->GetFlags(); }
+		randomx_dataset* GetDataset() { return _taskProcessor->GetDataset(); }
+
     protected:
         XTaskWrapper* GetTask() const { return _taskProcessor->GetCurrentTask(); }
         void AddHashCount(uint64_t n) { _hashCount.fetch_add(n, std::memory_order_relaxed); }
-
+		
         const uint32_t _index = 0;
     private:
         std::atomic<uint64_t> _hashCount = { 0 };

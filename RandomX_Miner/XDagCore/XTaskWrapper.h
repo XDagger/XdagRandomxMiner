@@ -16,7 +16,8 @@ struct xdag_pool_task
 {
     xdag_field lastfield, minhash, nonce;
     xdag_time_t main_time;
-    SHA256_CTX ctx;
+    SHA256_CTX ctx; // TODO: delete it after changing GPU algo
+	xdag_field randomx_key, randomx_input;
 };
 
 class XTaskProcessor;

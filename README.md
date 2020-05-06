@@ -3,6 +3,8 @@ Stand-alone RandomX CPU/GPU miner for XDAG (Dagger coin)
 
 This miner does not require files wallet.dat and dnet_key.dat. Storage folder is still necessary.
 
+Using https://github.com/tevador/RandomX master@ac574e3
+
 **Launch parameters:**
 
 	1) GPU benchmark: DaggerGpuMiner.exe -G -M  

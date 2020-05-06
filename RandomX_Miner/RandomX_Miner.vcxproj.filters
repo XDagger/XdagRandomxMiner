@@ -252,9 +252,6 @@
     <ClInclude Include="XDagCore\XTime.h">
       <Filter>XDagCore</Filter>
     </ClInclude>
-    <ClInclude Include="RandomX\randomx.h">
-      <Filter>RandomX</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -83,7 +83,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
         _mode = OperationMode::Mining;
         _poolUrl = argv[++i];
     }
-    else if(arg == "-opencl-platform" && i + 1 < argc)
+   /* else if(arg == "-opencl-platform" && i + 1 < argc)
     {
         try
         {
@@ -134,7 +134,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             cerr << "Bad " << arg << " option: " << argv[i] << endl;
             BOOST_THROW_EXCEPTION(BadArgument());
         }
-    }
+    }*/
     else if(arg == "-list-devices")
     {
         _shouldListDevices = true;
@@ -175,10 +175,10 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             BOOST_THROW_EXCEPTION(BadArgument());
         }
     }
-    else if(arg == "-G" || arg == "-opencl")
-    {
-        _minerType |= MinerType::CL;
-    }
+    //else if(arg == "-G" || arg == "-opencl")
+    //{
+    //    _minerType |= MinerType::CL;
+    //}
     else if(arg == "-M" || arg == "-benchmark")
     {
         _mode = OperationMode::Benchmark;
@@ -195,7 +195,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             BOOST_THROW_EXCEPTION(BadArgument());
         }
     }
-    else if((arg == "-d") && i + 1 < argc)
+    /*else if((arg == "-d") && i + 1 < argc)
     {
         try
         {
@@ -206,7 +206,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             cerr << "Bad " << arg << " option: " << argv[i] << endl;
             BOOST_THROW_EXCEPTION(BadArgument());
         }
-    }
+    }*/
     else if(arg == "-a"  && i + 1 < argc)
     {
         _accountAddress = argv[++i];
@@ -215,7 +215,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
     {
         _minerType |= MinerType::CPU;
     }
-    else if(arg == "-opencl-cpu")
+    /*else if(arg == "-opencl-cpu")
     {
         _useOpenClCpu = true;
     }
@@ -233,7 +233,7 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             {
             }
         }
-    }
+    }*/
 	else if((arg == "-w" || arg == "-worker") && i + 1 < argc) 
 	{
 		_workerName = argv[++i];
@@ -242,10 +242,10 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
 			_workerName.resize(WORKER_NAME_MAX_LENGTH);
 		}
 	}
-    else if(arg == "-vectors")
+   /* else if(arg == "-vectors")
     {
         _useVectors = true;
-    }
+    }*/
     else if(arg == "-no-fee")
     {
         _disableFee = true;
@@ -294,7 +294,7 @@ void MinerManager::StreamHelp(ostream& _out)
 {
     _out
         << "Mining mode:" << endl
-        << "    -G, -opencl  When mining use the GPU via OpenCL." << endl
+        //<< "    -G, -opencl  When mining use the GPU via OpenCL." << endl
         << "    -cpu  When mining use the CPU." << endl
         << endl
         << "Benchmarking mode:" << endl
@@ -306,44 +306,48 @@ void MinerManager::StreamHelp(ostream& _out)
         << "Mining configuration:" << endl
         << "    -p <url> Connect to a pool at URL" << endl
         << "    -a Your account address" << endl
-        << "    -opencl-platform <n>  When mining using -G/-opencl use OpenCL platform n (default: 0)." << endl
-        << "    -opencl-devices <0 1 ..n> Select which OpenCL devices to mine on (default: use everything available on selected platform)." << endl
+        /*<< "    -opencl-platform <n>  When mining using -G/-opencl use OpenCL platform n (default: 0)." << endl
+        << "    -opencl-devices <0 1 ..n> Select which OpenCL devices to mine on (default: use everything available on selected platform)." << endl*/
         << "    -t <n> Set number of CPU threads to n (default: the number of threads is equal to number of cores)." << endl
-        << "    -d <n> Limit number of used GPU devices to n (default: use everything available on selected platform)." << endl
+        //<< "    -d <n> Limit number of used GPU devices to n (default: use everything available on selected platform)." << endl
         << "    -list-devices List the detected devices and exit. Should be combined with -G or -cpu flag." << endl
-        << "    -nvidia-fix <n> Use workaround on high cpu usage with nvidia cards. n - optional value of thread sleep time, should be 0-95. (default: 90)" << endl
+        //<< "    -nvidia-fix <n> Use workaround on high cpu usage with nvidia cards. n - optional value of thread sleep time, should be 0-95. (default: 90)" << endl
 		<< "    -w, -worker Allows to set a worker name." << endl
         << endl
-        << " OpenCL configuration:" << endl
+       /* << " OpenCL configuration:" << endl
         << "    -cl-local-work Set the OpenCL local work size. Default is " << CLMiner::_defaultLocalWorkSize << endl
         << "    -cl-global-work Set the OpenCL global work size as a multiple of the local work size. Default is " << CLMiner::_defaultGlobalWorkSizeMultiplier << " * " << CLMiner::_defaultLocalWorkSize << endl
         << "    -vectors Sets OpenCL to use vector mathematics" << endl
         << endl
         << "For test purposes: " << endl
         << "    -opencl-cpu Use CPU as OpenCL device." << endl
-        << endl
+        << endl*/
         ;
 }
 
 void MinerManager::DoBenchmark(MinerType type, unsigned warmupDuration, unsigned trialDuration, unsigned trials)
 {
-    if(type != MinerType::CL)
-    {
-        cout << "Benchmark is available only for OpenCL" << endl;
-    }
+    //if(type != MinerType::CL)
+    //{
+    //    cout << "Benchmark is available only for OpenCL" << endl;
+    //}
+
+	// RandomX CPU benchmark
     XTaskProcessor taskProcessor;
     FillRandomTask(taskProcessor.GetNextTask());
     taskProcessor.SwitchTask();
 
     Farm farm(&taskProcessor, _io_service);
-    farm.AddSeeker(Farm::SeekerDescriptor { &CLMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new CLMiner(index, taskProcessor); } });
+    //farm.AddSeeker(Farm::SeekerDescriptor { &CLMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new CLMiner(index, taskProcessor); } });
+	farm.AddSeeker(Farm::SeekerDescriptor{ &XCpuMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new XCpuMiner(index, taskProcessor); } });
 
-    string platformInfo = "CL";
+    //string platformInfo = "CL";
+	string platformInfo = "CPU";
     cout << "Benchmarking on platform: " << platformInfo << endl;
 
     farm.Start();
 
-    map<uint64_t, WorkingProgress> results;
+    multimap<uint64_t, WorkingProgress> results;
     uint64_t mean = 0;
     uint64_t innerMean = 0;
     for(unsigned i = 0; i <= trials; ++i)
@@ -366,7 +370,8 @@ void MinerManager::DoBenchmark(MinerType type, unsigned warmupDuration, unsigned
         auto rate = mp.Rate();
 
         cout << rate << endl;
-        results[rate] = mp;
+        //results[rate] = mp;
+        results.insert(pair<uint64_t, WorkingProgress>(rate,mp));
         mean += rate;
     }
     farm.Stop();
@@ -500,6 +505,7 @@ bool MinerManager::CheckMandatoryParams()
 {
     return (_shouldListDevices && _minerType != MinerType::NotSet)
         || (_mode == OperationMode::Benchmark && _minerType == MinerType::CL)
+        || (_mode == OperationMode::Benchmark && _minerType == MinerType::CPU)
         || ((_minerType == MinerType::CPU || _minerType == MinerType::CL) && !_accountAddress.empty() && !_poolUrl.empty());
 }
 

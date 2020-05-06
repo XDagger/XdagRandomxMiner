@@ -8,6 +8,7 @@
 
 #include "XTaskWrapper.h"
 #include "Core/Guards.h"
+#include "RandomX/randomx.h"
 
 class XTaskProcessor
 {
@@ -16,7 +17,11 @@ private:
     uint64_t _taskCount;
     bool _taskIsActive;
     mutable Mutex _lock;
+
+	randomx_flags _flags;
+	randomx_dataset* _dataset;
     
+    void InitDataset(randomx_dataset* dataset, randomx_cache* cache, int initThreadCount, unsigned long datasetItemCount);
 public:
     XTaskProcessor();
     ~XTaskProcessor();
@@ -29,4 +34,7 @@ public:
     void ResetTasks() { _taskIsActive = false; }
 
     void DumpTasks();
+
+	randomx_flags GetFlags() { return _flags;  }
+	randomx_dataset* GetDataset();
 };
