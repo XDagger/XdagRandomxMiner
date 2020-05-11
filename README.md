@@ -7,7 +7,7 @@ Using https://github.com/tevador/RandomX master@ac574e3
 
 **Launch parameters:**
 
-	1) GPU benchmark: DaggerGpuMiner.exe -cpu -M -t 4  
+	1) CPU benchmark: DaggerGpuMiner.exe -cpu -M -t 4  
 	
 	2) GPU mining: DaggerGpuMiner.exe -G -a <WALLET_ADDRESS> -p <POOL_ADDRESS>  
 	
