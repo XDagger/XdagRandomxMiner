@@ -35,14 +35,13 @@ void XTaskWrapper::FillAndPrecalc(xdag_field* data, xdag_hash_t addressHash)
     memcpy(_task.lastfield.data, _task.nonce.data, sizeof(xdag_hash_t));
 
 	// set randomx key and input
-	memcpy(_task.randomx_key.data, data[0].data, sizeof(xdag_hash_t));
-	memcpy(_task.randomx_input.data, data[1].data, sizeof(xdag_hash_t));
+	memcpy(_task.randomx_key.data, data[1].data, sizeof(xdag_hash_t));
+	memcpy(_task.randomx_input.data, data[0].data, sizeof(xdag_hash_t));
 
     //we manually set the initial target difficulty of shares
-    memset(_task.minhash.data, 0xff, 24);
+    memset(_task.minhash.data, 0xff, 32);
     //_task.minhash.data[3] = 0x000008ffffffffff;
 
-	_task.minhash.data[3] = 0x000008ffffffffff; // TODO: randomx difficulty
 
 
     ////some precalculations on task data for GPU mining

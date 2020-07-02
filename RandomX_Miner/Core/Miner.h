@@ -95,15 +95,15 @@ namespace XDag
 
     inline std::ostream& operator<<(std::ostream& _out, WorkingProgress _p)
     {
-        float mh = _p.Rate() / 1000000.0f;
+        float kh = _p.Rate() / 1000.0f;
         _out << "Speed "
-            << EthTealBold << std::fixed << std::setw(6) << std::setprecision(2) << mh << EthReset
-            << " Mh/s    ";
+            << EthTealBold << std::fixed << std::setw(6) << std::setprecision(2) << kh << EthReset
+            << " Kh/s    ";
 
         for(size_t i = 0; i < _p.minersHashes.size(); ++i)
         {
-            mh = _p.MinerRate(_p.minersHashes[i]) / 1000000.0f;
-            _out << "u/" << i << " " << EthTeal << std::fixed << std::setw(5) << std::setprecision(2) << mh << EthReset;
+            kh = _p.MinerRate(_p.minersHashes[i]) / 1000.0f;
+            _out << "u/" << i << " " << EthTeal << std::fixed << std::setw(5) << std::setprecision(2) << kh << EthReset;
             //if(_p.minerMonitors.size() == _p.minersHashes.size())
             //    _out << " " << EthTeal << _p.minerMonitors[i] << EthReset;
             _out << "  ";

@@ -131,8 +131,14 @@ bool XPool::SendTaskResult()
         _lastShareTime = time(0);
         memcpy(_lastHash, hash, sizeof(xdag_hash_t));
         bool res = _currentConnection->SendToPool(&task->lastfield, 1);
-        clog(XDag::LogChannel) << string_format("Share t=%llx res=%s\n%016llx%016llx%016llx%016llx",
+        //clog(XDag::LogChannel) << string_format("pre hash %016llx%016llx%016llx%016llx\n",
+        //    task->randomx_input.data[3], task->randomx_input.data[2], task->randomx_input.data[1], task->randomx_input.data[0]);
+        //clog(XDag::LogChannel) << string_format("last field %016llx%016llx%016llx%016llx\n",
+        //    task->lastfield.data[3], task->lastfield.data[2], task->lastfield.data[1], task->lastfield.data[0]);
+        clog(XDag::LogChannel) << string_format("Share t=%llx res=%s\n%016llx%016llx%016llx%016llx\n",
             task->main_time << 16 | 0xffff, res ? "OK" : "Fail", hash[3], hash[2], hash[1], hash[0]);
+        
+
 #ifdef _DEBUG
         std::cout << "Address: " << XAddress::HashToAddress(_currentConnection->GetAddressHash()) << std::endl;
 #endif // _DEBUG
