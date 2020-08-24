@@ -261,10 +261,11 @@ void MinerManager::Execute()
 {
     if(_shouldListDevices)
     {
-        if((_minerType & MinerType::CL) == MinerType::CL)
-        {
-            CLMiner::ListDevices(_useOpenClCpu);
-        }
+        //if((_minerType & MinerType::CL) == MinerType::CL)
+        //{
+        //    CLMiner::ListDevices(_useOpenClCpu);
+        //}
+
         if((_minerType & MinerType::CPU) == MinerType::CPU)
         {
             XCpuMiner::ListDevices();
@@ -272,10 +273,11 @@ void MinerManager::Execute()
         return;
     }
 
-    if((_minerType & MinerType::CL) == MinerType::CL)
-    {
-        ConfigureGpu();
-    }
+    //if((_minerType & MinerType::CL) == MinerType::CL)
+    //{
+    //    ConfigureGpu();
+    //}
+
     if((_minerType & MinerType::CPU) == MinerType::CPU)
     {
         ConfigureCpu();
@@ -410,10 +412,11 @@ void MinerManager::DoMining(MinerType type, string& remote, unsigned recheckPeri
 
     Farm farm(&taskProcessor, _io_service);
 
-    if((type & MinerType::CL) == MinerType::CL)
-    {
-        farm.AddSeeker(Farm::SeekerDescriptor { &CLMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new CLMiner(index, taskProcessor); } });
-    }
+    //if((type & MinerType::CL) == MinerType::CL)
+    //{
+    //    farm.AddSeeker(Farm::SeekerDescriptor { &CLMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new CLMiner(index, taskProcessor); } });
+    //}
+
     if((type & MinerType::CPU) == MinerType::CPU)
     {
         farm.AddSeeker(Farm::SeekerDescriptor { &XCpuMiner::Instances, [](unsigned index, XTaskProcessor* taskProcessor) { return new XCpuMiner(index, taskProcessor); } });
@@ -472,24 +475,24 @@ void MinerManager::DoMining(MinerType type, string& remote, unsigned recheckPeri
 
 void MinerManager::ConfigureGpu()
 {
-    if(_openclDeviceCount > 0)
-    {
-        CLMiner::SetDevices(_openclDevices, _openclDeviceCount);
-        _openclMiningDevices = _openclDeviceCount;
-    }
+    //if(_openclDeviceCount > 0)
+    //{
+    //    CLMiner::SetDevices(_openclDevices, _openclDeviceCount);
+    //    _openclMiningDevices = _openclDeviceCount;
+    //}
 
-    if(!CLMiner::ConfigureGPU(
-        _localWorkSize,
-        _globalWorkSizeMultiplier,
-        _openclPlatform,
-        _useOpenClCpu))
-    {
-        exit(1);
-    }
+    //if(!CLMiner::ConfigureGPU(
+    //    _localWorkSize,
+    //    _globalWorkSizeMultiplier,
+    //    _openclPlatform,
+    //    _useOpenClCpu))
+    //{
+    //    exit(1);
+    //}
 
-    CLMiner::SetNumInstances(_openclMiningDevices);
-    CLMiner::SetUseNvidiaFix(_useNvidiaFix, _nvidiaSpinDamp);
-    CLMiner::SetUseVectors(_useVectors);
+    //CLMiner::SetNumInstances(_openclMiningDevices);
+    //CLMiner::SetUseNvidiaFix(_useNvidiaFix, _nvidiaSpinDamp);
+    //CLMiner::SetUseVectors(_useVectors);
 }
 
 void MinerManager::ConfigureCpu()
@@ -504,9 +507,11 @@ void MinerManager::ConfigureCpu()
 bool MinerManager::CheckMandatoryParams()
 {
     return (_shouldListDevices && _minerType != MinerType::NotSet)
-        || (_mode == OperationMode::Benchmark && _minerType == MinerType::CL)
+        //|| (_mode == OperationMode::Benchmark && _minerType == MinerType::CL)
         || (_mode == OperationMode::Benchmark && _minerType == MinerType::CPU)
-        || ((_minerType == MinerType::CPU || _minerType == MinerType::CL) && !_accountAddress.empty() && !_poolUrl.empty());
+        //|| ((_minerType == MinerType::CPU || _minerType == MinerType::CL) && !_accountAddress.empty() && !_poolUrl.empty());
+        || (_minerType == MinerType::CPU && !_accountAddress.empty() && !_poolUrl.empty());
+
 }
 
 void MinerManager::FillRandomTask(XTaskWrapper *taskWrapper)

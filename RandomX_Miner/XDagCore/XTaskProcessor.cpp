@@ -23,6 +23,11 @@ XTaskProcessor::XTaskProcessor()
 
 XTaskProcessor::~XTaskProcessor()
 {
+	if (_cache != nullptr)
+	{
+		randomx_release_cache(_cache);
+
+	}
 	if (_dataset != nullptr)
 	{
 		randomx_release_dataset(_dataset);
@@ -64,28 +69,23 @@ void XTaskProcessor::SwitchTask()
 
 	if (_dataset == nullptr || XHash::CompareHashes(preKey, newKey) != 0)
 	{
-		if (_dataset != nullptr)
-		{
-			randomx_release_dataset(_dataset);
-			_dataset = nullptr;
-		}
-		std::cout << "Generating Cache and Dataset" << std::endl;
-		randomx_cache* cache = randomx_alloc_cache(_flags);
-		if (cache == nullptr) {
-			std::cerr << "Cache allocation failed" << std::endl;
-			exit(-1);
-		}
-		randomx_init_cache(cache, newKey, sizeof(xdag_hash_t));
-
-		_dataset = randomx_alloc_dataset(_flags);
 		if (_dataset == nullptr) {
-			std::cerr << "Dataset allocation failed" << std::endl;
-			exit(-1);
-		}		
-		uint32_t datasetItemCount = randomx_dataset_item_count();
-		InitDataset(_dataset, cache, 4, datasetItemCount);
+			std::cout << "Generating Cache and Dataset" << std::endl;
+			_cache = randomx_alloc_cache(_flags);
+			if (_cache == nullptr) {
+				std::cerr << "Cache allocation failed" << std::endl;
+				exit(-1);
+			}
 
-		randomx_release_cache(cache);
+			_dataset = randomx_alloc_dataset(_flags);
+			if (_dataset == nullptr) {
+				std::cerr << "Dataset allocation failed" << std::endl;
+				exit(-1);
+			}
+		}
+		randomx_init_cache(_cache, newKey, sizeof(xdag_hash_t));
+		uint32_t datasetItemCount = randomx_dataset_item_count();
+		InitDataset(_dataset, _cache, 4, datasetItemCount);
 	}
 }
 

@@ -34,9 +34,6 @@
     <Filter Include="CL">
       <UniqueIdentifier>{58eb3b6f-78a0-461d-afc9-93baa4b7bd77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="MinerEngine\CL">
-      <UniqueIdentifier>{fd490899-72a9-4fa9-afe9-4b94bdb64b34}</UniqueIdentifier>
-    </Filter>
     <Filter Include="RandomX">
       <UniqueIdentifier>{6b00a411-556f-4cbc-a64c-54dd20fc7ad5}</UniqueIdentifier>
     </Filter>
@@ -110,9 +107,6 @@
       <Filter>XDagCore</Filter>
     </ClCompile>
     <ClCompile Include="MinerEngine\XCpuMiner.cpp">
-      <Filter>MinerEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MinerEngine\CLMiner.cpp">
       <Filter>MinerEngine</Filter>
     </ClCompile>
     <ClCompile Include="XDagCore\XConnection.cpp">
@@ -225,13 +219,7 @@
     <ClInclude Include="XDagCore\XBlock.h">
       <Filter>XDagCore</Filter>
     </ClInclude>
-    <ClInclude Include="MinerEngine\CL\cl2.hpp">
-      <Filter>MinerEngine\CL</Filter>
-    </ClInclude>
     <ClInclude Include="MinerEngine\XCpuMiner.h">
-      <Filter>MinerEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MinerEngine\CLMiner.h">
       <Filter>MinerEngine</Filter>
     </ClInclude>
     <ClInclude Include="XDagCore\XConnection.h">

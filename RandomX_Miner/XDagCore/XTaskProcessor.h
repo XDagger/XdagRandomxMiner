@@ -20,6 +20,7 @@ private:
 
 	randomx_flags _flags;
 	randomx_dataset* _dataset;
+    randomx_cache* _cache;
     
     void InitDataset(randomx_dataset* dataset, randomx_cache* cache, int initThreadCount, unsigned long datasetItemCount);
 public:

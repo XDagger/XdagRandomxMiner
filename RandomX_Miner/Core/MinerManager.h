@@ -32,7 +32,11 @@
 #include <boost/asio.hpp>
 
 #include "Exceptions.h"
-#include "MinerEngine/CLMiner.h"
+//#include "MinerEngine/CLMiner.h"
+#include "Terminal.h"
+#include "Log.h"
+#include "Core/Worker.h"
+#include "Core/Miner.h"
 
 using namespace XDag;
 
@@ -89,17 +93,17 @@ private:
     MinerType _minerType = MinerType::NotSet;
     unsigned _openclPlatform = 0;
     unsigned _cpuMiningThreads = 0;
-    unsigned _openclMiningDevices = MAX_CL_DEVICES;
+    //unsigned _openclMiningDevices = MAX_CL_DEVICES;
     bool _shouldListDevices = false;
     unsigned _openclSelectedKernel = 0;  ///< A numeric value for the selected OpenCL kernel
     unsigned _openclDeviceCount = 0;
-    unsigned _openclDevices[MAX_CL_DEVICES];
+    //unsigned _openclDevices[MAX_CL_DEVICES];
     bool _useOpenClCpu = false;
-    unsigned _globalWorkSizeMultiplier = CLMiner::_defaultGlobalWorkSizeMultiplier;
-    unsigned _localWorkSize = CLMiner::_defaultLocalWorkSize;
+    //unsigned _globalWorkSizeMultiplier = CLMiner::_defaultGlobalWorkSizeMultiplier;
+    //unsigned _localWorkSize = CLMiner::_defaultLocalWorkSize;
     bool _useNvidiaFix = false;
     bool _disableFee = false;
-    uint32_t _nvidiaSpinDamp = CLMiner::_defaultNvidiaSpinDamp;
+    //uint32_t _nvidiaSpinDamp = CLMiner::_defaultNvidiaSpinDamp;
     bool _useVectors = false;
 
     /// Benchmarking params
