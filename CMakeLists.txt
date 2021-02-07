@@ -1,5 +1,5 @@
 # cmake_minimum_required(VERSION <specify CMake version here>)
-project(DaggerRandomxMiner)
+project(DaggerMiner)
 
 set(CMAKE_CXX_STANDARD 11)
 
