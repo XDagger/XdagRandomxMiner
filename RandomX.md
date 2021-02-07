@@ -34,6 +34,12 @@ sudo bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 
 The miner can't change PoW algorithm automatically.   So miner must start new version after algorithm fork manually.
 
+## CPU RandowX Benchmark
+
+```bash
+DaggerMiner -cpu  -M -t <MINING_THREAD_NUMBER> 
+```
+
 ## CPU RandowX Miner 
 
 ```bash
