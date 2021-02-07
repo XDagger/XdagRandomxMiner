@@ -5,6 +5,9 @@
 // Licensed under GNU General Public License, Version 3. See the LICENSE file.
 
 #include <iostream>
+#ifndef _WIN32
+#include <thread>
+#endif
 #include "XTaskProcessor.h"
 #include "Core/Log.h"
 

@@ -23,7 +23,6 @@
 
 #pragma once
 
-#include "RandomX/randomx.h"
 #include "Worker.h"
 #include <thread>
 #include <list>
@@ -33,6 +32,12 @@
 #include "Common.h"
 #include "Log.h"
 #include "XDagCore/XTaskProcessor.h"
+
+#ifdef _WIN32
+#include "Randomx/randomx.h"
+#else
+#include <randomx.h>
+#endif
 
 #define MINER_WAIT_STATE_WORK	 1
 

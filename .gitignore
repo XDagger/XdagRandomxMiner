@@ -1,6 +1,7 @@
 /**/*.o
 /**/*~
 /.vs/
+/.idea
 /RandomX_Miner.VC.db
 /packages/
 /x64/
@@ -19,3 +20,5 @@ RandomX/vcxproj/Release/
 RandomX/vcxproj/Debug/
 RandomX_Miner/RandomX_Miner.xcodeproj/project.xcworkspace
 mac/RandomX_Miner.xcodeproj/project.xcworkspace
+/cmake-build-debug
+/cmake-build-release

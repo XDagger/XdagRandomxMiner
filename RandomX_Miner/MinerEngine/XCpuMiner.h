@@ -7,7 +7,12 @@
 #pragma once
 
 #include "Core/Miner.h"
-#include "RandomX/randomx.h"
+
+#ifdef _WIN32
+#include "Randomx/randomx.h"
+#else
+#include <randomx.h>
+#endif
 
 using namespace XDag;
 
