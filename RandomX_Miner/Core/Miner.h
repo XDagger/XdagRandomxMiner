@@ -34,7 +34,7 @@
 #include "XDagCore/XTaskProcessor.h"
 
 #ifdef _WIN32
-#include "Randomx/randomx.h"
+#include "RandomX/randomx.h"
 #else
 #include <randomx.h>
 #endif
