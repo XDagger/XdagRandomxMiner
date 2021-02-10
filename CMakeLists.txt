@@ -5,12 +5,19 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Boost COMPONENTS thread REQUIRED)
+find_package(Boost COMPONENTS system filesystem thread date_time chrono regex serialization program_options locale)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    include_directories(${Boost_INCLUDE_DIR})
+endif()
+message("boost include dirs ${Boost_INCLUDE_DIRS}")
+message("boost include dirs ${Boost_INCLUDE_DIR}")
 
 include(./RandomX_Miner/RandomXConfig.cmake)
 find_package(RandomX CONFIG)
 if(RANDOMX_FOUND)
     message("-- Found RandomX: include ${RandomX_INCLUDE_DIR}  libraries ${RandomX_LIBRARY}")
+    include_directories(${RandomX_INCLUDE_DIR})
 else()
     message(FATAL_ERROR "Failed to find RandomX dependency!")
 endif()
@@ -91,7 +98,8 @@ add_executable(DaggerRandomxMiner
         RandomX_Miner/version.h)
 
 target_link_libraries(
-        ${PROJECT_NAME}
-        Boost::thread
+        DaggerRandomxMiner
+        PUBLIC
+        ${Boost_LIBRARIES}
         ${RandomX_LIBRARY}
 )
