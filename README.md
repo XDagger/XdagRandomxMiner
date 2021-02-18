@@ -13,7 +13,7 @@ Using https://github.com/tevador/RandomX master@ac574e3
 	
 **The project supports Windows, Linux and Mac OS now.**   
 **Binary file available for Window**  
-[Download](https://github.com/swordlet/DaggerRandomxMiner/releases/tag/Pre_0.4.0)  
+[Download](https://github.com/XDagger/XdagRandomxMiner/releases/tag/v0.4)  
 
 
 ## How to build
