@@ -22,6 +22,9 @@ Using https://github.com/tevador/RandomX master@ac574e3
 The project has  dependencies: Boost and OpenSSL
 Boost and OpenSSL libraries are included by Nuget Manager and should be downloaded automatically.
 
+Need special privilege called as SeLockMemoryPrivilege to use huge pages.
+[Huge Pages On Windows](https://xmrig.com/docs/miner/hugepages)
+
 ### Launch parameters:
 
 	1) CPU benchmark: DaggerMiner.exe -cpu -M -t 4
