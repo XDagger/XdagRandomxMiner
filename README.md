@@ -23,7 +23,10 @@ The project has  dependencies: Boost and OpenSSL
 Boost and OpenSSL libraries are included by Nuget Manager and should be downloaded automatically.
 
 Need special privilege called as SeLockMemoryPrivilege to use huge pages.
-[Huge Pages On Windows](https://xmrig.com/docs/miner/hugepages)
+
+[Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/en-gb/library/ms190730.aspx)
+
+On Windows 10 once you obtain the privilege, admin rights no longer required to use huge pages, but on Windows 7 admin rights always required.
 
 ### Launch parameters:
 
