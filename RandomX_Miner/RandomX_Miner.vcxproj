@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -87,12 +87,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(OPENCL_SDK)\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;CL_USE_DEPRECATED_OPENCL_2_0_APIS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy CL\CLMiner_kernel.cl "$(OutDir)CLMiner_kernel.cl" /Y</Command>
@@ -103,12 +104,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(OPENCL_SDK)\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;CL_USE_DEPRECATED_OPENCL_2_0_APIS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86_64</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <StackReserveSize>16777216</StackReserveSize>
     </Link>
     <PostBuildEvent>
@@ -122,8 +124,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(OPENCL_SDK)\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;CL_USE_DEPRECATED_OPENCL_2_0_APIS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <FloatingPointModel>Fast</FloatingPointModel>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -131,8 +133,9 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(OPENCL_SDK)\lib\x86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenCL.lib;shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;randomx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
@@ -148,7 +151,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;CL_USE_DEPRECATED_OPENCL_2_0_APIS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_WIN32_WINNT=0x0601;USE_OPENSSL_SHA</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <FloatingPointModel>Fast</FloatingPointModel>
       <BufferSecurityCheck>false</BufferSecurityCheck>
