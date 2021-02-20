@@ -1,4 +1,6 @@
 # DaggerRandomxMiner
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FXDagger%2FXdagRandomxMiner.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FXDagger%2FXdagRandomxMiner?ref=badge_shield)
+
 Stand-alone RandomX CPU/GPU miner for XDAG (Dagger coin)
 
 This miner does not require files wallet.dat and dnet_key.dat. Storage folder is still necessary.
@@ -60,3 +62,7 @@ Open XCode project to build Mac OS version.
 
 
 **This miner not support GPU yet.**
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FXDagger%2FXdagRandomxMiner.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FXDagger%2FXdagRandomxMiner?ref=badge_large)
