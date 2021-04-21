@@ -33,6 +33,8 @@ include_directories(RandomX_MinerXDagCore/dar)
 include_directories(RandomX_MinerXDagCore/dfstools)
 
 add_executable(DaggerRandomxMiner
+        RandomX_Miner/Core/global.h
+        RandomX_Miner/Core/global.cpp
         RandomX_Miner/Core/Common.h
         RandomX_Miner/Core/CommonData.cpp
         RandomX_Miner/Core/CommonData.h

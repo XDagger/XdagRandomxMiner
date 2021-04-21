@@ -27,6 +27,7 @@
 #include "Utils/CpuInfo.h"
 #include "Utils/Random.h"
 #include "Utils/Utils.h"
+#include "Core/global.h"
 
 #define WORKER_NAME_MAX_LENGTH 28
 
@@ -195,6 +196,10 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
             BOOST_THROW_EXCEPTION(BadArgument());
         }
     }
+    else if((arg == "-T")) 
+    {
+        g_net_type = 0;
+    }
     /*else if((arg == "-d") && i + 1 < argc)
     {
         try
@@ -315,6 +320,7 @@ void MinerManager::StreamHelp(ostream& _out)
         << "    -list-devices List the detected devices and exit. Should be combined with -G or -cpu flag." << endl
         //<< "    -nvidia-fix <n> Use workaround on high cpu usage with nvidia cards. n - optional value of thread sleep time, should be 0-95. (default: 90)" << endl
 		<< "    -w, -worker Allows to set a worker name." << endl
+        << "    -T  For testnet." << endl
         << endl
        /* << " OpenCL configuration:" << endl
         << "    -cl-local-work Set the OpenCL local work size. Default is " << CLMiner::_defaultLocalWorkSize << endl
