@@ -21,6 +21,7 @@ enum class xdag_field_type
     XDAG_FIELD_SIGN_OUT,
     XDAG_FIELD_PUBLIC_KEY_0,
     XDAG_FIELD_PUBLIC_KEY_1,
+    XDAG_FIELD_HEAD_TEST,
 };
 
 typedef uint64_t xdag_amount_t;
