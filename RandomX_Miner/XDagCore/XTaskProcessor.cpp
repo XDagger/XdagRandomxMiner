@@ -91,6 +91,7 @@ void XTaskProcessor::SwitchTask()
 				exit(-1);
 			}
 		}
+		std::cout << "SEED:" << std::hex << newKey[3]<< std::hex << newKey[2]<< std::hex << newKey[1]<< std::hex << newKey[0] << std::endl;
 		randomx_init_cache(_cache, newKey, sizeof(xdag_hash_t));
 		uint32_t datasetItemCount = randomx_dataset_item_count();
 		InitDataset(_dataset, _cache, 4, datasetItemCount);
