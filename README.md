@@ -14,13 +14,13 @@ Using https://github.com/tevador/RandomX master@ac574e3
 	2) CPU mining: DaggerMiner.exe -cpu -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
 	
 **The project supports Windows, Linux and Mac OS now.**   
-**Binary file available for Window**  
-[Download](https://github.com/XDagger/XdagRandomxMiner/releases/tag/v0.4)  
+**Binary file available for Window and Linux**  
+[Download](https://github.com/XDagger/XdagRandomxMiner/releases/tag/v0.4.2)  
 
 
 ## How to build
 
-## Windows:  
+## Windows:
 The project has  dependencies: Boost and OpenSSL
 Boost and OpenSSL libraries are included by Nuget Manager and should be downloaded automatically.
 
@@ -36,23 +36,39 @@ On Windows 10 once you obtain the privilege, admin rights no longer required to 
 	
 	2) CPU mining: DaggerMiner.exe -cpu -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
 
+    3) CPU huge pages mining: DaggerMiner.exe -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
+
 
 ## Linux:
 
-Check dependencies: libboost-dev, libboost-system-dev, openssl, librandomx.  
+Check dependencies: libboost-dev, libboost-system-dev, openssl, librandomx.
 
 Download this source code, then cd to source folder. Build with cmake.
+#### Enable huge pages
 
+Temporary (until next reboot) reserve huge pages
+
+```bash
+sudo sysctl -w vm.nr_hugepages=1280
+```
+
+Permanent huge pages reservation
+
+```bash
+sudo bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
+```
 ### Launch parameters:
 
 	1) CPU benchmark: ./DaggerMiner -cpu -M -t 4
 	
 	2) CPU mining: ./DaggerMiner -cpu -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8
-	
 
-## Mac:  
+    3) CPU huge pages mining: ./DaggerMiner -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8
+
+
+## Mac:
 Install Boost with brew.  
-Open XCode project to build Mac OS version.  
+Open XCode project to build Mac OS version.
 
 ### Launch parameters:
 	1) CPU benchmark: ./DaggerMiner -cpu -M -t 4
