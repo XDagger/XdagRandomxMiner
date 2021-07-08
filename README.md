@@ -36,7 +36,7 @@ On Windows 10 once you obtain the privilege, admin rights no longer required to 
 	
 	2) CPU mining: DaggerMiner.exe -cpu -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
 
-    3) CPU huge pages mining: DaggerMiner.exe -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
+    	3) CPU huge pages mining: DaggerMiner.exe -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8  
 
 
 ## Linux:
@@ -63,7 +63,7 @@ sudo bash -c "echo vm.nr_hugepages=1280 >> /etc/sysctl.conf"
 	
 	2) CPU mining: ./DaggerMiner -cpu -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8
 
-    3) CPU huge pages mining: ./DaggerMiner -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8
+    	3) CPU huge pages mining: ./DaggerMiner -cpu -L -a <WALLET_ADDRESS> -p <POOL_ADDRESS> -t 8
 
 
 ## Mac:
