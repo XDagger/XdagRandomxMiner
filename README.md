@@ -15,7 +15,7 @@ Using https://github.com/tevador/RandomX master@ac574e3
 	
 **The project supports Windows, Linux and Mac OS now.**   
 **Binary file available for Window and Linux**  
-[Download](https://github.com/XDagger/XdagRandomxMiner/releases/tag/v0.4.2)  
+[Download](https://github.com/XDagger/XdagRandomxMiner/releases/tag/0.4.2)  
 
 
 ## How to build
